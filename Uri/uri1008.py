@@ -1,0 +1,6 @@
+num=int(input())
+qthrs=int(input())
+valor=float(input())
+SALARIO=(qthrs*valor)
+print('NUMBER =',num)
+print('SALARY = U$ {:.2f}'.format(SALARIO))
