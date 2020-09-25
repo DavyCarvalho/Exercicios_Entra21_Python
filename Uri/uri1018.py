@@ -1,3 +1,30 @@
-# valor=int(input())
-a=10%3
-print(a)
+valor=int(input())
+
+notas_100=valor//100
+resto=valor%100
+
+notas_50=resto//50
+resto=resto%50
+
+notas_20=resto//20
+resto=resto%20
+
+notas_10=resto//10
+resto=resto%10
+
+notas_5=resto//5
+resto=resto%5
+
+notas_2=resto//2
+
+notas_1=resto%2
+
+print(valor)
+
+print(notas_100,'nota(s) de R$ 100,00')
+print(notas_50,'nota(s) de R$ 50,00')
+print(notas_20,'nota(s) de R$ 20,00')
+print(notas_10,'nota(s) de R$ 10,00')
+print(notas_5,'nota(s) de R$ 5,00')
+print(notas_2,'nota(s) de R$ 2,00')
+print(notas_1,'nota(s) de R$ 1,00')
