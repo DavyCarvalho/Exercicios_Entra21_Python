@@ -89,3 +89,7 @@ print(listatotal_tres)
 print(sum(listatotal_um))
 print(sum(listatotal_dois))
 print(sum(listatotal_tres))
+
+# print(valorleds_um)
+# print(valorleds_dois)
+# print(valorleds_tres)
