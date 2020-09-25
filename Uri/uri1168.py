@@ -18,7 +18,7 @@ nove=6
 zero=6
 
 #-----------------------------------------------#   
-for i in range(valorleds_um):
+for i in range(len(valorleds_um)):
     if i == 1:
         listatotal_um.append(um)
     elif i == 2:
@@ -40,7 +40,7 @@ for i in range(valorleds_um):
     elif i == 0:
         listatotal_um.append(zero)
 #-----------------------------------------------#    
-for i in range(valorleds_dois):
+for i in range(len(valorleds_dois)):
     if i == 1:
         listatotal_dois.append(um)
     elif i == 2:
@@ -62,7 +62,7 @@ for i in range(valorleds_dois):
     elif i == 0:
         listatotal_dois.append(zero)
 #-----------------------------------------------# 
-for i in range(valorleds_tres):
+for i in range(len(valorleds_tres)):
     if i == 1:
         listatotal_tres.append(um)
     elif i == 2:
@@ -86,3 +86,6 @@ for i in range(valorleds_tres):
 print(listatotal_um)
 print(listatotal_dois)
 print(listatotal_tres)
+print(sum(listatotal_um))
+print(sum(listatotal_dois))
+print(sum(listatotal_tres))
