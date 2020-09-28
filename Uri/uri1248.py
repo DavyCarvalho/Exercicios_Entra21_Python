@@ -17,13 +17,17 @@ for i in range(qntd_testes):
     lista_rango=sorted(lista_rango)
     
     for i in lista_dieta:
-        if i in lista_rango:
-            lista_dieta.remove(i)
-    for i in lista_rango:
-        if not i in lista_dieta:
+        if not i in lista_rango:
             print('CHEATER')
             break
-    print(lista_dieta)
+        elif i in lista_rango:
+            for i in lista_rango:
+                    if i in lista_dieta:
+                        lista_dieta.remove(i)
+            print(lista_dieta)
+    
+    
+    
 
 
 
