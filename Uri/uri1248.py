@@ -17,7 +17,7 @@ for i in range(qntd_testes):
     lista_rango=sorted(lista_rango)
     
     for i in lista_dieta:
-        if not i in lista_rango:
+        if not i in lista_rango: #errado (está apenas invertendo o sinal!!!!!)
             print('CHEATER')
             break
         elif i in lista_rango:
