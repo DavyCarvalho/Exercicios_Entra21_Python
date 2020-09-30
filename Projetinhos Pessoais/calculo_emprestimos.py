@@ -16,3 +16,21 @@ resultado_vista=sum(lista_vista)
 print('Valor total a prazo = R${:.2f}'.format(resultado_prazo))
 print('Valor total a vista = R${:.2f}'.format(resultado_vista))
 print('\n')
+
+# 5813.48
+# 4740.50
+
+# 882.98
+# 849.16
+
+# 14509.17
+# 10232.42
+
+# 7262.48
+# 5922.09
+
+# 6567.73
+# 5627.86
+
+# 3084.27
+# 2798.46
