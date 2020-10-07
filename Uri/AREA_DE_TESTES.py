@@ -23,6 +23,8 @@
 # print(lista_dieta)
 # print(lista_rango)
 
-print(12%8)
-print(27/9)
-print(259%111)
+# print(12%8)
+# print(27/9)
+# print(259%111)
+
+print(200.01**(1/2))
