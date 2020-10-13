@@ -18,9 +18,9 @@
 
 num=int(input('Qual o numéro a ser calculado a raíz? '))
 
-def calc_raiz(x):
+def calc_raiz(numero_a_ser_calculada_a_raiz):
     indice=int(input('Qual o valor do indice? '))
     calc=num**(1/indice)
     return calc
 
-print(f'O valor da raiz é {calc_raiz(num)}')
+print('O valor da raiz é {:.2f}'.format(calc_raiz(num)))
