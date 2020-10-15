@@ -6,7 +6,8 @@
 #---       a função deve retornar uma mensagem ao final de acordo com a situação
 #--- A função deve ser salva em um arquivo diferente do arquivo principal onde será chamada
 
-def cadastrar_endereco(id_usuario:int, rua:str, numero:str, complemento:str, bairro:str, cidade:str, estado:str, lista_pessoas:list) -> str:
+def cadastrar_endereco(id_usuario:int, rua:str, numero:str, complemento:str, 
+                                              bairro:str, cidade:str, estado:str, lista_pessoas:list) -> str:
 
     if id_usuario and rua and numero and complemento and bairro and cidade and estado:
         for pessoa in lista_pessoas:
@@ -26,4 +27,5 @@ def cadastrar_endereco(id_usuario:int, rua:str, numero:str, complemento:str, bai
         return 'Endereço cadastrado com sucesso.'
 
     else:
+
         return 'Endereço inválido. Existem campos em branco. Tente novamente!'

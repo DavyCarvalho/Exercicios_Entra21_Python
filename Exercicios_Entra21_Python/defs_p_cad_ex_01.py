@@ -9,7 +9,7 @@
 
 def cadastrar_pessoa(nome:str, sobrenome:str, idade:int, lista_pessoas:list):
     usuario = {}
-
+    
     if idade < 18:
 
         return 'Ser humano menor de idade!'

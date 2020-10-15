@@ -24,7 +24,7 @@ Para D: Digite o nome do cliente e o apague do cadastro
 Para S: Mostre uma mensagem de despedida e termine o programa
 Para qualquer outro valor: Mostre "Opção invalida"
 """
-# TESTE
+# 'TESTE'
 # lista_nomes = ['DAVY', 'SAMUEL', 'DANYEL', 'EMILY']
 # lista_idades = ['21', '22', '17', '19']
 # lista_sexo = ['m', 'm', 'm', 'f']

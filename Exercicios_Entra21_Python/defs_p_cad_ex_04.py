@@ -22,4 +22,5 @@ def exibir_endereco(pessoa:dict) -> None:
     print(f'''
     Rua {pessoa['endereco']['rua']}, n° {pessoa['endereco']['numero']} - {pessoa['endereco']['complemento']}
     {pessoa['endereco']['bairro']}
-    {pessoa['endereco']['cidade']} - {pessoa['endereco']['estado']}''')
+    {pessoa['endereco']['cidade']} - {pessoa['endereco']['estado']}
+    ''')
