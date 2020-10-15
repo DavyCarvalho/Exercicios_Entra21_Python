@@ -6,26 +6,19 @@
 #---       a função deve retornar uma mensagem ao final de acordo com a situação
 #--- A função deve ser salva em um arquivo diferente do arquivo principal onde será chamada
 
-def cadastrar_endereco(id_usuario:int, rua:str, numero:str, complemento:str, 
-                                              bairro:str, cidade:str, estado:str, lista_pessoas:list) -> str:
+def cadastrar_endereco(rua:str, numero:str, complemento:str, bairro:str, cidade:str, estado:str) -> str:
 
-    if id_usuario and rua and numero and complemento and bairro and cidade and estado:
-        for pessoa in lista_pessoas:
+    if rua and numero and complemento and bairro and cidade and estado:
+        
+        arquivo = open('lista_dados.txt','a')
 
-            if pessoa['id_usuario'] == id_usuario:
-                endereco = {
-                    'rua': rua,
-                    'numero': numero,
-                    'complemento': complemento,
-                    'bairro': bairro,
-                    'cidade': cidade,
-                    'estado': estado
-                }
-
-                pessoa['endereco'] = endereco
+        arquivo.write(f",{rua},{numero},{complemento},{bairro},{cidade},{estado}\n")  
+        arquivo.close()   
 
         return 'Endereço cadastrado com sucesso.'
 
     else:
 
         return 'Endereço inválido. Existem campos em branco. Tente novamente!'
+
+# cadastrar_endereco('itajai','99','aaaa','aqui','de deus','sc')

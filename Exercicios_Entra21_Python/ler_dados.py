@@ -1,7 +1,6 @@
 def ler_dados () -> str:
-
-    char = '*'
-    print(f'{char*15} CADASTRO DE DADOS {char*15}')
+    conteudo_topo = ' CADASTRO DE PESSOAS - HBSIS '
+    print(f'{conteudo_topo:=^50}')
 
     nome = input('Informe o nome: ')
     sobrenome = input('Informe o sobrenome: ')
@@ -9,11 +8,10 @@ def ler_dados () -> str:
 
     return nome, sobrenome, idade
 
-
 def ler_endereco() -> str:
 
-    char = '*'
-    print(f'\n{char*15} ENDEREÇO {char*15}')
+    conteudo_endereco = 'ENDEREÇO'
+    print(f'\n{conteudo_endereco:*^50}')
 
     rua = input('Rua: ')
     numero = input('Número: ')

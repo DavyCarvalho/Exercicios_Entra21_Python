@@ -7,19 +7,20 @@
 #---       caso a pessoa tenha sido cadastrada com sucesso deve ser retornado um id 
 #--- A função deve ser salva em um arquivo diferente do arquivo principal onde será chamada
 
-def cadastrar_pessoa(nome:str, sobrenome:str, idade:int, lista_pessoas:list):
-    usuario = {}
+def cadastrar_pessoa(nome:str, sobrenome:str, idade:int):
     
     if idade < 18:
 
         return 'Ser humano menor de idade!'
 
     else:
-        usuario['id_usuario'] = id(nome)
-        usuario['nome'] = nome
-        usuario['sobrenome'] = sobrenome
-        usuario['idade'] = idade
-        lista_pessoas.append(usuario)
+        arquivo = open('lista_dados.txt', 'a')
+        arquivo.write(f"{str(id(nome))},{nome},{sobrenome},{idade}")
+        arquivo.close()
 
-        return id(nome)
+        return str(id(nome))
 
+# cadastrar_pessoa('DAVY','CARVALHO',21)
+
+# 22354112,DAVY,CARVALHO,21,itajai,99,aaaa,aqui,de deus,sc
+# 32132132,EDUARDA,TASCHETTO,98,itajai,789,bbbbb,la,de pessoas,RS

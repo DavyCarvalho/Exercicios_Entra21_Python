@@ -4,23 +4,26 @@
 #--- Escreva uma função para exibir um endereço específico:
 # a função deve retornar um endereço cadastrado na função do ex2 filtrando por id da pessoa
 
-def listar_enderecos(lista_pessoas:list) -> None:
+from defs_p_cad_ex_03 import dados
 
-    for pessoa in lista_pessoas:
-        exibir_endereco(pessoa)
+def listar_enderecos() -> None:
 
+    arquivo = open('lista_dados.txt','r')
 
-def listar_endereco_epecifico(user_id:int, lista_pessoas:list) -> None:
+    for linha in arquivo:
+        elemento = linha.split(',')
+        for i in range(len(elemento[4:])):
+            print(f'{dados[i]}: {elemento[i]}')
+    arquivo.close()
+
+def listar_endereco_epecifico(id_usuario:str) -> None:
     
-    for pessoa in lista_pessoas:
-        if pessoa['id_usuario'] == user_id:
-            exibir_endereco(pessoa)
+    arquivo = open('lista_dados.txt','r')
 
+    for linha in arquivo:
+        elemento = linha.split(',')
+        if id_usuario in elemento:
+            for i in range(len(elemento[4:])):
+                print(f'{dados[i]}: {elemento[i]}')
+    arquivo.close()
 
-def exibir_endereco(pessoa:dict) -> None:
-
-    print(f'''
-    Rua {pessoa['endereco']['rua']}, n° {pessoa['endereco']['numero']} - {pessoa['endereco']['complemento']}
-    {pessoa['endereco']['bairro']}
-    {pessoa['endereco']['cidade']} - {pessoa['endereco']['estado']}
-    ''')
