@@ -1,8 +1,22 @@
 from os import system, name 
 
+palavra = ''
+chances = 0
+
+def carregar_config():
+    global palavra
+    global chances
+    linhas_arquivo = []
+    with open('forca.txt') as arquivo:
+        for linha in arquivo:
+            linhas_arquivo.append(linha.strip())
+    palavra = str(linhas_arquivo[0])
+    chances = int(linhas_arquivo[1])
+
 def jogar():
-    palavra = "abelha"
-    chances = 5
+    global palavra
+    global chances
+    carregar_config()
     letras_usadas = []
     while True:
         tentativa_palavra = ""
@@ -40,8 +54,20 @@ def jogar():
         if chances == 0:
             print("Você perdeu!")
             break
-        
 
+# implementar a função carregar_config
+    # implementar a função verifica_fim_jogo
+    # implementar a função limpar_tela
+
+    # previnir que o usuário digite números
+    # previnir que o usuário repita letras
+
+    # implementar menu de usuário com as seguintes opções:
+    # 1 - Jogar
+    # 2 - Modificar as configurações
+    # 3 - sair
+    
+    # https://realpython.com/quizzes/python-dicts/viewer/
 
 if __name__ == "__main__":
     jogar()

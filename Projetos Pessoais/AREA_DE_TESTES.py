@@ -96,7 +96,18 @@
 # #         print(letra)
 
 # var.close()
+# x=0
+# while x<10:
+#     print(x)
+#     x+=1 #igual
+#     x=x+1 #igual
 
-
-
-
+'''
+for letra in palavra:
+            if letra in letras_usadas:
+                tentativa_palavra=tentativa_palavra + letra #tentativa_palavra += letra MESMA COISA
+            else:
+                tentativa_palavra=tentativa_palavra + '_' #tentativa_palavra += '_' MESMA COISA
+        #for letra in palavra:
+            #tentativa_palavra += letra if letra in letras_usadas else "_" JEITO MAIS RESUMIDO DO PROFESSOR'
+            # '''
