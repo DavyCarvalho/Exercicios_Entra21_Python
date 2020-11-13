@@ -51,8 +51,9 @@ class DataSaver():
                     
                         if cpf_buscado(ELEMENTO_BUSCADO) == linha.strip().split(",")[2]: 
                         
-                        linha.strip() = "Davy,21,106"
-                        linha.split(",") = ['Davy','21','106']
+                        linha.strip() = "Davy,21,106"  #removeu o \n
+                        linha.split(",") = ['Davy','21','106'] #transformou a string em uma lista, 
+                                                                separando elementos pela ","
                         
                         indice-------------> 0 --> 1 --> 2
                         
