@@ -111,3 +111,10 @@ for letra in palavra:
         #for letra in palavra:
             #tentativa_palavra += letra if letra in letras_usadas else "_" JEITO MAIS RESUMIDO DO PROFESSOR'
             # '''
+
+with open("Clientes_Banco.txt", "r") as arquivo:
+    linhas_arquivo = arquivo.readlines()
+
+    for lista_cliente in linhas_arquivo:
+        for dados in lista_cliente.split():
+            print(dados)
