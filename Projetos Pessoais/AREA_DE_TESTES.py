@@ -112,9 +112,29 @@ for letra in palavra:
             #tentativa_palavra += letra if letra in letras_usadas else "_" JEITO MAIS RESUMIDO DO PROFESSOR'
             # '''
 
-with open("Clientes_Banco.txt", "r") as arquivo:
-    linhas_arquivo = arquivo.readlines()
+# with open("Clientes_Banco.txt", "r") as arquivo:
+#     linhas_arquivo = arquivo.readlines()
 
-    for lista_cliente in linhas_arquivo:
-        for dados in lista_cliente.split():
-            print(dados)
+#     for lista_cliente in linhas_arquivo:
+#         for dados in lista_cliente.split():
+#             print(dados)
+
+"""
+
+class Veiculo():                                       #n_rodas:int 
+    def __init__(self, cor:str, altura:str, peso:float, n_rodas=4, motor='eletrico'): 
+        self.cor = cor
+        self.altura = altura
+        self.peso = peso
+        self.n_rodas = n_rodas
+        self.motor = motor
+        
+class Carro(Veiculo):
+    def __init__(self,cor:str, altura:str, peso:float): # NÃO DECLARAR OS PARAMETROS QUE SÃO FIXOS DO ''CARRO''
+        super().__init__(cor, altura, peso, 4, 'combustão') # DECLARAR AQUI OS PARAMETROS FIXOS 
+        
+car = Carro('BRANCA',33,1.2)
+
+print(car.motor,'\n', car.n_rodas)
+
+"""
