@@ -1,5 +1,6 @@
 import sqlite3
 from time import sleep
+from os import system, name
 
 class Proprietario():
         def __init__(self, nome_proprietario:str, cpf:str, idade:int):
@@ -38,7 +39,7 @@ class Veiculo():
                 self.nome_proprietario, self.criado_em)
                 
 
-                cursor.execute(f"""
+                cursor.execute("""
                                 INSERT INTO veiculos (nome_veiculo, marca, modelo_categoria, 
                                 cor, tipo_motor, combustivel, ano, 
                                 num_portas, qtd_passageiros, placa, 

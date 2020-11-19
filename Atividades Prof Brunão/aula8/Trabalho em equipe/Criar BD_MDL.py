@@ -2,7 +2,6 @@ import sqlite3
 
 conn = sqlite3.connect('cadastro_de_veiculos_concessionaria_do_vale.db')
 
-
 cursor = conn.cursor()
 
 cursor.execute("""
@@ -21,13 +20,13 @@ cursor.execute("""
                nome_proprietario TEXT NOT NULL,
                criado_em DATE NOT NULL
                
-               FOREIGN KEY () REFERENCES cidades(id)
                );              
                """)
 
 cursor.execute("""
                CREATE TABLE cadastro_de_pessoas (
                id_pessoa INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+               id_veiculo_pessoa INTEGER NOT NULL,
                nome TEXT NOT NULL,
                data_nascimento TEXT NOT NULL,
                cpf VARCHAR(11),
@@ -39,7 +38,9 @@ cursor.execute("""
                nome_de_responsavel TEXT NOT NULL,
                sexo TEXT NOT NULL,
                naturalidade TEXT NOT NULL,
-               nacionalidade TEXT NOT NULL
+               nacionalidade TEXT NOT NULL,
+               
+               FOREIGN KEY (id_veiculo_pessoa) REFERENCES cadastro_de_veiculos(id_veiculo)
                );
                """)
 

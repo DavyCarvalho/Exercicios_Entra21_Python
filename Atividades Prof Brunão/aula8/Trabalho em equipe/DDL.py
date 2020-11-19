@@ -1,3 +1,5 @@
+import sqlite3
+
 class Pessoa():
     def __init__(self, nome:str, data_nascimento:str, cpf:str, 
                  endereco:str, salario:float, profissao:str,
@@ -17,7 +19,22 @@ class Pessoa():
         self.nacionalidade = nacionalidade
         
     def salvar_pessoa_na_tabela(self):
-        pass
+        
+        conn = sqlite3.connect('cadastro_de_veiculos_concessionaria_do_vale.db')
+        cursor = conn.cursor()
+        
+        tupla_dados_veiculo = (self.nome, self.data_nascimento, 
+                               self.cpf, self.endereco, self.salario,
+                               self.profissao, self.email,self.telefone,
+                               self.nome_de_responsavel, self.sexo,
+                               self.naturalidade, self.nacionalidade)
+        
+        cursor.execute("""
+                        INSERT INTO cadastro_de_pessoas (id_veiculo_pessoa, nome, data_nascimento, 
+                                                        cpf, endereco, salario, profissao, email,
+                                                        telefone, nome_de_responsavel, sexo, 
+                                                        naturalidade, nacionalidade) 
+                        VALUES (?,?,?,?,?,?,?,?,?,?,?)""", tupla_dados_veiculo)
         
 class Carro():
     def __init__(self, nome_veiculo:str, marca:str, modelo_categoria:str,
