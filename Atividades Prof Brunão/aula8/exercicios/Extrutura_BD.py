@@ -1,10 +1,10 @@
 import sqlite3
 
-conn = sqlite3.connect('veiculos.db')
+conn = sqlite3.connect('proprietarios_e_veiculos.db')
 cursor = conn.cursor()
 
 cursor.execute("""
-CREATE TABLE veiculos (
+        CREATE TABLE veiculos (
         id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
         nome_veiculo TEXT NOT NULL,
         marca TEXT NOT NULL,
@@ -16,19 +16,18 @@ CREATE TABLE veiculos (
         num_portas INTEGER NOT NULL,
         qtd_passageiros INTEGER NOT NULL,
         placa TEXT NOT NULL,
-        nome_proprietario TEXT NOT NULL,
         criado_em DATETIME DEFAULT CURRENT_TIMESTAMP
         );
         """)
 
 cursor.execute("""
-CREATE TABLE proprietários (
-        id_veiculo INTEGER NOT NULL,
+        CREATE TABLE proprietarios (
         id_proprietario INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
         nome_proprietario TEXT NOT NULL,
+        id_veiculo INTEGER NOT NULL,
         cpf TEXT NOT NULL,
         idade TEXT NOT NULL,
-        criado_em DATETIME DEFAULT CURRENT_TIMESTAMP
+        criado_em DATETIME DEFAULT CURRENT_TIMESTAMP,
         
         FOREIGN KEY (id_veiculo) REFERENCES veiculos(id)
         );

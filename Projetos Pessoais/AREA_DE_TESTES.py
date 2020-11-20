@@ -138,3 +138,66 @@ car = Carro('BRANCA',33,1.2)
 print(car.motor,'\n', car.n_rodas)
 
 """
+
+# tupla = ('davy',21,10651143977)
+
+# lista = list(tupla)
+
+# for item in range(1):
+#     print(f"""
+#           Nome: {lista[0]}
+#           Idade: {lista[1]}
+#           CPF: {lista[2]}
+#           """)
+
+import sqlite3
+
+
+# conn = sqlite3.connect('proprietarios_e_veiculos.db')
+# cursor = conn.cursor()
+
+# # vamos inserir valores na nossa tabela 
+# cursor.execute("""
+#     INSERT INTO proprietarios (nome_proprietario, id_veiculo, cpf, idade)
+#     VALUES ('Davy', 1, '00000000000', 21)
+# """)
+
+# # grava no DB
+# conn.commit()
+# conn.close()
+
+
+# conn = sqlite3.connect('proprietarios_e_veiculos.db')
+# cursor = conn.cursor()
+
+# cursor.execute("""
+# SELECT * FROM proprietarios;
+# """)
+# print("""
+# ===============================
+#       Pessoas Cadastradas 
+# -------------------------------""")
+# for pessoa in cursor.fetchall():
+#         dado = list(pessoa)
+#         print(f"""
+# ===============================
+# ID PESSOA: {dado[0]}
+# NOME: {dado[1]}
+# ID VEÍCULO: {dado[2]}
+# CPF: {dado[3]}
+# IDADE: {dado[4]}
+# CRIADO EM: {dado[5]}""")
+
+
+# conn.close()
+
+
+
+try:
+    opcao = int(input('a: '))
+    # if type(opcao) == int:
+    print('num')
+    
+except ValueError:
+        print('vazio')
+
