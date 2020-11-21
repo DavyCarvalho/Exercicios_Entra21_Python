@@ -44,19 +44,19 @@ class Pessoa():
         conn.close()
 
 
-    def delete_pessoa(self):# Deve retornar uma mensagem de confirmação se a ação foi executada com sucesso!
+    def delete_pessoa(self):#FELIPE
         pass
 
 
-    def update_pessoa(self):# Deve retornar uma mensagem de confirmação se a ação foi executada com sucesso!
+    def update_pessoa(self):#DAVY
         pass
 
 
-    def exibir_pessoa(self):# Deve retornar uma mensagem de confirmação se a ação foi executada com sucesso!
+    def exibir_pessoa(self):#FELIPE
         pass
 
 
-    def inserir_coluna_tabela_pessoa(self):# Deve retornar uma mensagem de confirmação se a ação foi executada com sucesso!
+    def inserir_coluna_tabela_pessoa(self):#RAUL
         pass
 
 
@@ -100,19 +100,19 @@ class Carro():
         conn.close()
 
 
-    def delete_veiculo(self): # Deve retornar uma mensagem de confirmação se a ação foi executada com sucesso!
+    def delete_veiculo(self): #FELIPE
         pass
 
 
-    def update_veiculo(self):# Deve retornar uma mensagem de confirmação se a ação foi executada com sucesso!
+    def update_veiculo(self):#DAVY
         pass
 
 
-    def exibir_veiculo(self):# Deve retornar uma mensagem de confirmação se a ação foi executada com sucesso!
+    def exibir_veiculo(self):#FELIPE
         pass
     
 
-    def inserir_coluna_tabela_veiculo(self):# Deve retornar uma mensagem de confirmação se a ação foi executada com sucesso!
+    def inserir_coluna_tabela_veiculo(self):#RAUL
         pass      
 
 

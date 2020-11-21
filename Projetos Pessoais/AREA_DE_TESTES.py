@@ -191,13 +191,16 @@ import sqlite3
 
 # conn.close()
 
-
-
-try:
-    opcao = int(input('a: '))
-    # if type(opcao) == int:
-    print('num')
-    
-except ValueError:
-        print('vazio')
-
+colunas = ['NOME DO VEÍCULO','MARCA','CATEGORIA', 'COR', 
+                                           'TIPO DO MOTOR', 'COMBUSTÍVEL', 'ANO', 'NUMERO DE PORTAS',
+                                           'QUANTIDADE DE PASSAGEIROS', 'PLACA']
+                                
+for coluna in range(1):
+        print(f"""
+        Opções de colunas:
+        1){colunas[0]}   6){colunas[5]}
+        2){colunas[1]}             7){colunas[6]}
+        3){colunas[2]}         8){colunas[7]}
+        4){colunas[3]}               9){colunas[8]}
+        5){colunas[4]}     10){colunas[9]}
+        """)
