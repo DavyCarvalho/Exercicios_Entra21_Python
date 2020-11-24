@@ -5,6 +5,7 @@ from os import system, name
 class Proprietario():
         
         def __init__(self, nome_proprietario:str, cpf:str, idade:int):
+                
                 self.nome_proprietario = nome_proprietario
                 self.cpf = cpf
                 self.idade = idade
@@ -43,112 +44,93 @@ class Proprietario():
                         else:
                                 print("O valor da chave ID deve ser um numero!\n")
                                 continue
+          
                         
-        
         def atualizar_proprietario(self): #OK
+                
                 while True:
                         
                         try:
                                 opcao = int(input("Digite o ID do cliente que deseja atualizar ou "
                                                   "Tecle Enter para vizualizar todos os clientes!"))
                                 
+                                conn = sqlite3.connect('proprietarios_e_veiculos.db')
+                                cursor = conn.cursor()
+
+                                cursor.execute("""
+                                SELECT * FROM proprietarios;
+                                """)
+                                
+                                verificador = False
+
+                                for pessoa in cursor.fetchall():
+                                        if opcao in pessoa:
+                                                
+                                                verificador = True
+                                                
+                                                print(f"""
+                                                ===============================
+                                                ID CLIENTE: {pessoa[0]} - BLOQUEADO CONTRA ALTERAÇÕES
+                                                NOME: {pessoa[1]}
+                                                CPF: {pessoa[2]}
+                                                IDADE: {pessoa[3]}
+                                                CRIADO EM: {pessoa[4]} - BLOQUEADO CONTRA ALTERAÇÕES""")
+                                                conn.close()
+                                                break
+                                        
+                                if not verificador:
+                                        print("ID DE CLIENTE NÃO ENCONTRADO!!!"
+                                        "FAVOR DIGITE NOVAMENTE!")
+                                        continue
+                
+                                        
+                                print("Opções de colunas:\n\n"
+                                        
+                                         "1)NOME\n"
+                                         "2)CPF\n"
+                                         "3)IDADE\n")
+                                
                                 while True:
                                         
-                                        conn = sqlite3.connect('proprietarios_e_veiculos.db')
-                                        cursor = conn.cursor()
-
-                                        cursor.execute("""
-                                        SELECT * FROM proprietarios;
-                                        """)
-
-                                        for pessoa in cursor.fetchall():
-                                                dado = list(pessoa)
-                                                if opcao in dado:
-                                                        print(f"""
-                                                        ===============================
-                                                        ID CLIENTE: {dado[0]} - BLOQUEADO CONTRA ALTERAÇÕES
-                                                        NOME: {dado[1]}
-                                                        CPF: {dado[2]}
-                                                        IDADE: {dado[3]}
-                                                        CRIADO EM: {dado[4]} - BLOQUEADO CONTRA ALTERAÇÕES""")
-                                                        conn.close()
-                                                        break
-                                                # TEM UM PROBLEMA AQUI !!!!! VERIFICAR !!!!
-                                                else:
-                                                        print("ID DE CLIENTE NÃO ENCONTRADO!!!"
-                                                        "FAVOR DIGITE NOVAMENTE!")
-                                                        continue
-                                
-                                colunas = ['NOME','CPF','IDADE']
-                                
-                                for coluna in range(1):
-                                        print(f"""
-                                              Opções de colunas:
-                                              
-                                              1){colunas[0]}
-                                              2){colunas[1]}
-                                              3){colunas[2]}
-                                              """)
-                                while True:
+                                        verificador=True
+                                        
                                         try:
-                                                coluna_alterar_tabela = int(input("Digite o Nº da coluna você deseja alterar na tabela PESSOAS?"))
+                                                coluna_alterar_tabela = int(input("Digite o Nº da opção que você deseja alterar na tabela PESSOAS?"))
                                                 
-                                                if coluna_alterar_tabela == 1:
-                                                        
-                                                        conn = sqlite3.connect('proprietarios_e_veiculos.db')
-                                                        cursor = conn.cursor()
-                                                                                        
-                                                        nome_cliente = input("")
+                                                conn = sqlite3.connect('proprietarios_e_veiculos.db')
+                                                cursor = conn.cursor()
+                                                
+                                                dados_tabela_proprietarios = cursor.execute("""PRAGMA table_info(proprietarios)""")
+                                                                                                
+                                                for tuplas in dados_tabela_proprietarios:
+                                                        if coluna_alterar_tabela == 0 or coluna_alterar_tabela == 4:
+                                                                     print('Valor invalido! Digite novamente!\n')
+                                                                     
+                                                                     break                                                         
 
-                                                        cursor.execute("""
-                                                        UPDATE proprietarios
-                                                        SET nome_proprietario = ?
-                                                        WHERE id = ?
-                                                        """, (nome_cliente, opcao))
+                                                        elif tuplas[0] == coluna_alterar_tabela:
+                                                                
+                                                                alteracao = input("Digite a nova informação!\n")
 
-                                                        conn.commit()
+                                                                cursor.execute(f"""
+                                                                UPDATE proprietarios
+                                                                SET {tuplas[1]} = '{alteracao}'
+                                                                WHERE id_proprietario = '{tuplas[0]}'
+                                                                """)
 
-                                                        print('Nome atualizado com sucesso!')
-                                                        break
-                                                        
-                                                elif coluna_alterar_tabela == 2:
-                                                        
-                                                        conn = sqlite3.connect('proprietarios_e_veiculos.db')
-                                                        cursor = conn.cursor()
-                                                                                        
-                                                        cpf_cliente = input("")
+                                                                conn.commit()
+                                                                conn.close()
 
-                                                        cursor.execute("""
-                                                        UPDATE proprietarios
-                                                        SET cpf = ?
-                                                        WHERE id = ?
-                                                        """, (cpf_cliente, opcao))
-
-                                                        conn.commit()
-
-                                                        print('CPF atualizado com sucesso!')
-                                                        break
-                                                        
-                                                elif coluna_alterar_tabela == 3:
-                                                        
-                                                        conn = sqlite3.connect('proprietarios_e_veiculos.db')
-                                                        cursor = conn.cursor()
-                                                                                        
-                                                        idade_cliente = input("")
-
-                                                        cursor.execute("""
-                                                        UPDATE proprietarios
-                                                        SET idade = ?
-                                                        WHERE id = ?
-                                                        """, (idade_cliente, opcao))
-
-                                                        conn.commit()
-
-                                                        print('IDADE atualizada com sucesso!')
-                                                        break       
+                                                                print('Atualização realizada com sucesso!')
+                                                                verificador = False 
+                                                                break
+                                        
                                         except ValueError:
                                                 print('Digite um valor valido!\n')
-                                                continue
+                                                continue #Desnecessário pois ele vai continuar o while true de qlquer maneira!!!!
+                                        
+                                        if not verificador:
+                                                break 
                                                            
                 
                         except ValueError:
@@ -163,16 +145,18 @@ class Proprietario():
                                 """)
 
                                 for pessoa in cursor.fetchall():
-                                        dado = list(pessoa)
                                         print(f"""
                                                ===============================
-                                               ID CLIENTE: {dado[0]} - BLOQUEADO CONTRA ALTERAÇÕES
-                                               NOME: {dado[1]}
-                                               CPF: {dado[2]}
-                                               IDADE: {dado[3]}
-                                               CRIADO EM: {dado[4]} - BLOQUEADO CONTRA ALTERAÇÕES""")
+                                               ID CLIENTE: {pessoa[0]} - BLOQUEADO CONTRA ALTERAÇÕES
+                                               NOME: {pessoa[1]}
+                                               CPF: {pessoa[2]}
+                                               IDADE: {pessoa[3]}
+                                               CRIADO EM: {pessoa[4]} - BLOQUEADO CONTRA ALTERAÇÕES""")
                                 conn.close()
-                                continue                                
+                                continue
+                        
+                        if not verificador:
+                                                break                           
         
         
         def exibir_proprietario(self):# OK
@@ -234,14 +218,7 @@ class Proprietario():
                                                CRIADO EM: {dado[4]}""")
                                 conn.close()
                                 break  
-        
-        
-        def adicionar_coluna_proprietario(self):
-                pass
-        
-        
-        def remover_coluna_proprietario(self):
-                pass
+                
                 
         
 class Veiculo():
@@ -638,12 +615,9 @@ class Veiculo():
                                 break
         
         
-        def adicionar_coluna_veiculo(self):
-                pass
-        
-        
-        def remover_coluna_veiculo(self):
-                pass
+        # def adicionar_coluna_veiculo(self): #NÃO DA AINDA PRA FAZER ESTÁ MERDA NEM TENTA E NAO SE ESTRESSA!!!!!!
+        # def remover_coluna_veiculo(self): #NÃO DA AINDA PRA FAZER ESTÁ MERDA NEM TENTA E NAO SE ESTRESSA!!!!!!
+                
 
 
 # print(f"{' Cadastrando Proprietário ':=^60}")

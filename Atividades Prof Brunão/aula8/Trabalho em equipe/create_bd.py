@@ -17,7 +17,7 @@ cursor.execute("""
                     qtd_passageiros INTEGER NOT NULL,
                     placa TEXT NOT NULL,
                     criado_em DATE NOT NULL
-               ); 
+               );
         """)
 
 cursor.execute("""
@@ -38,16 +38,9 @@ cursor.execute("""
                );
         """)
 
-cursor.execute("""
-               CREATE TABLE pessoa_veiculo (
-                   id_proprietario  INTEGER NOT NULL,
-                   id_veiculo_prop  INTEGER NOT NULL,
-                   FOREIGN KEY (id_proprietario) REFERENCES cadastro_de_pessoas(id_pessoa),
-                   FOREIGN KEY (id_veiculo_prop) REFERENCES cadastro_de_veiculos(id_veiculo)
-               );
-        """)
-
 conn.close()
+
+print('Hey brou, banco de dados criado!! ')
 
 """DDL DATA DEFINITION LANGUAGE
 DML DATA MODELING LANGUAGE
